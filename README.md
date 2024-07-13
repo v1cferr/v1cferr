@@ -3,10 +3,6 @@
 ### 🔧 Systems Developer
 Currently, I am an intern systems developer working with React Vite on the front end and Python FastAPI on the back end. I am focused on developing cybersecurity products that offer services like SAST/SCA and DAST.
 
-### 🚀 Featured Projects
-- **[Project 1](https://github.com/v1cferr/project1):** A brief description of the project, technologies used (React, FastAPI, etc.).
-- **[Project 2](https://github.com/v1cferr/project2):** A brief description of the project, technologies used (Python, Docker, etc.).
-
 ### 🛠️ Technologies and Tools
 - **Languages:** JavaScript, TypeScript, Python
 - **Frameworks:** React, Next.js, FastAPI
