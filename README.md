@@ -1,16 +1,25 @@
-## Hi there 👋
+# 👋 Hi! I'm Victor F.
 
-<!--
-**v1cferr/v1cferr** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+### 🔧 Systems Developer
+Currently, I am an intern systems developer working with React Vite on the front end and Python FastAPI on the back end. I am focused on developing cybersecurity products that offer services like SAST/SCA and DAST.
 
-Here are some ideas to get you started:
+### 🚀 Featured Projects
+- **[Project 1](https://github.com/v1cferr/project1):** A brief description of the project, technologies used (React, FastAPI, etc.).
+- **[Project 2](https://github.com/v1cferr/project2):** A brief description of the project, technologies used (Python, Docker, etc.).
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+### 🛠️ Technologies and Tools
+- **Languages:** JavaScript, TypeScript, Python
+- **Frameworks:** React, Next.js, FastAPI
+- **Tools:** Vite, Docker, Git, Swagger
+
+### 📊 GitHub Stats
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=v1cferr&show_icons=true&theme=radical)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=v1cferr&layout=compact&theme=radical)
+
+### 📫 How to Reach Me
+- [LinkedIn](https://www.linkedin.com/in/v1cferr/)
+- [Email](mailto:dev.victorferreira@gmail.com)
+
+---
+
+📝 Updated in July 2024
