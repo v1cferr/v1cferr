@@ -39,10 +39,11 @@
   };
 
   meta = {
-    homepage = "https://v1cferr.dev";
-    setup    = "https://v1cferr.dev/en-us/setup";
-    linkedin = "https://linkedin.com/in/v1cferr";
-    email    = "dev.victorferreira@gmail.com";
+    homepage     = "https://v1cferr.dev";
+    setup        = "https://v1cferr.dev/en-us/setup";
+    linkedin     = "https://linkedin.com/in/v1cferr";
+    email        = "dev.victorferreira@gmail.com";
+    lastModified = "2026-09-20";  # read from git, the way a flake.lock is
   };
 }
 ```

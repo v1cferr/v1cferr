@@ -1,0 +1,51 @@
+name: Refresh the generated bits
+
+# Two things in this profile go stale on their own: the years in the banner,
+# which move with the calendar, and meta.lastModified, which moves with the
+# commits. Both are derived rather than typed, so neither can quietly start
+# lying. The schedule catches the turn of the year; the push trigger catches
+# everything else.
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 3 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-readme
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    # Without this, the bot's own commit triggers the push event again.
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # update_last_modified.py walks back past bot commits to find the
+          # last human one, so a depth-1 checkout would starve it.
+          fetch-depth: 50
+
+      - name: Refresh the banner years
+        run: python3 scripts/update_banner_year.py
+
+      - name: Refresh meta.lastModified
+        run: python3 scripts/update_last_modified.py
+
+      - name: Commit if anything moved
+        run: |
+          if git diff --quiet -- README.md assets/reproducible.svg; then
+            echo "Nothing changed."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md assets/reproducible.svg
+          git commit -m "Refresh the generated parts of the README"
+          git push
