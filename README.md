@@ -22,14 +22,13 @@
     infra    = [ "NixOS" "Docker Compose" "Caddy" "Playwright" "Azure (Bicep)" ];
   };
 
-  services.automation = {
-    enable = true;
-    timers = {
-      # This desktop sleeps at night. A missed sweep runs late, never not at all.
-      grad-radar    = { onCalendar = "08,20:00"; persistent = true; };
-      # One authorisation, taken by whoever gets there first: the tap or the deadline.
-      acuttis-point = { askBefore = true; };
-    };
+  networking.hostName = "nixos-kingston";
+
+  hardware = {
+    cpu  = "Intel i5-11400";
+    gpu  = "Intel Arc B580";                    # open xe driver, Mesa, no CUDA
+    disk = "Kingston KC3000, btrfs subvolumes";
+    boot = "GRUB, dualboot, Secure Boot signed with my own keys";
   };
 
   programs.llm = {
@@ -39,13 +38,16 @@
     trust    = "proposals";  # a model is never the source of a fact
   };
 
-  meta.homepage = "https://v1cferr.dev";
+  meta = {
+    homepage = "https://v1cferr.dev";
+    setup    = "https://v1cferr.dev/en-us/setup";
+    linkedin = "https://linkedin.com/in/v1cferr";
+    email    = "dev.victorferreira@gmail.com";
+  };
 }
 ```
 
-Everything up there is real, including the timers.
-
-[v1cferr.dev](https://v1cferr.dev) · [LinkedIn](https://www.linkedin.com/in/v1cferr/) · [dev.victorferreira@gmail.com](mailto:dev.victorferreira@gmail.com)
+[v1cferr.dev](https://v1cferr.dev) · [setup](https://v1cferr.dev/en-us/setup) · [LinkedIn](https://www.linkedin.com/in/v1cferr/) · [dev.victorferreira@gmail.com](mailto:dev.victorferreira@gmail.com)
 
 <!--
 A language/stats card can go here, e.g.:
