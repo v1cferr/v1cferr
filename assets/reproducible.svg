@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 300" width="880" height="300" role="img"
-     aria-label="The same flake.lock built in 2026 and in 2031 produces the identical /nix/store path. Five years apart, byte for byte.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 352" width="880" height="352" role="img"
+     aria-label="The same flake.lock, built six years apart, resolving to the identical /nix/store path.">
 
   <title>Reproducible by construction</title>
-  <desc>Two builds of the same pinned flake, five years apart, resolving to the identical store path.</desc>
+  <desc>Two builds of the same pinned flake, six years apart, resolving to the identical store path.</desc>
 
   <defs>
     <clipPath id="type-left">
@@ -26,24 +26,25 @@
     .panel { fill: #0d1117; }
     .edge  { stroke: #30363d; fill: none; }
     .dim   { fill: #8b949e; }
+    .faint { fill: #6e7681; }
     .fg    { fill: #c9d1d9; }
     .nix   { fill: #7ebae4; }
   </style>
 
-  <rect class="panel" x="0.5" y="0.5" width="879" height="299" rx="12" stroke="#30363d"/>
+  <rect class="panel" x="0.5" y="0.5" width="879" height="351" rx="12" stroke="#30363d"/>
 
-  <!-- the two builds, five years apart -->
+  <!-- the two builds, six years apart. Both years are rewritten by
+       scripts/update_banner_year.py, so this never goes stale. -->
   <g class="edge">
     <rect x="100" y="50" width="260" height="80" rx="6"/>
     <rect x="520" y="50" width="260" height="80" rx="6"/>
   </g>
 
-  <!-- year tags, notched into the top border -->
   <g>
     <rect class="panel" x="202" y="41" width="56" height="18"/>
     <rect class="panel" x="622" y="41" width="56" height="18"/>
-    <text class="mono nix" x="230" y="55" font-size="13" text-anchor="middle">2026</text>
-    <text class="mono nix" x="650" y="55" font-size="13" text-anchor="middle">2031</text>
+    <text class="mono nix" x="230" y="55" font-size="13" text-anchor="middle" data-slot="year-now">2026</text>
+    <text class="mono nix" x="650" y="55" font-size="13" text-anchor="middle" data-slot="year-then">2032</text>
   </g>
 
   <g class="mono" font-size="13">
@@ -53,7 +54,6 @@
     <text class="dim" x="544" y="108">nixos-26.05</text>
   </g>
 
-  <!-- same input, five years of drift in between -->
   <g class="edge" stroke-width="1.2">
     <path d="M230,130 L230,164"/>
     <path d="M224,158 L230,166 L236,158"/>
@@ -74,7 +74,6 @@
       </text>
     </g>
 
-    <!-- cursors, visible only while their side is still typing -->
     <g opacity="0">
       <animate attributeName="opacity" dur="9s" repeatCount="indefinite"
                values="0;0;1;1;0;0" keyTimes="0;0.105;0.115;0.30;0.315;1"/>
@@ -110,9 +109,23 @@
     <text class="mono" x="440" y="241" font-size="13" fill="#3fb950" text-anchor="middle">identical</text>
   </g>
 
-  <text class="mono dim" x="440" y="276" font-size="13" text-anchor="middle" opacity="1">
+  <text class="mono dim" x="440" y="272" font-size="13" text-anchor="middle" opacity="1"
+        data-slot="span">
     <animate attributeName="opacity" dur="9s" repeatCount="indefinite"
              values="0;0;1;1;0;0" keyTimes="0;0.52;0.60;0.93;0.965;1"/>
-    five years apart, byte for byte
+    six years apart, byte for byte
   </text>
+
+  <!-- Dijkstra, EWD498, "How do we tell truths that might hurt?", 1975 -->
+  <g opacity="1">
+    <animate attributeName="opacity" dur="9s" repeatCount="indefinite"
+             values="0;0;1;1;0;0" keyTimes="0;0.60;0.68;0.93;0.965;1"/>
+    <path class="edge" d="M330,296 L550,296" stroke-width="1"/>
+    <text class="mono fg" x="440" y="322" font-size="13.5" text-anchor="middle">
+      "Simplicity is prerequisite for reliability."
+    </text>
+    <text class="mono faint" x="440" y="340" font-size="11" text-anchor="middle">
+      Edsger W. Dijkstra, EWD498, 1975
+    </text>
+  </g>
 </svg>

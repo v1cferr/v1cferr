@@ -1,5 +1,5 @@
 <img src="assets/reproducible.svg" width="880"
-     alt="The same flake.lock, built in 2026 and in 2031, resolving to the identical /nix/store path">
+     alt="The same flake.lock, built six years apart, resolving to the identical /nix/store path">
 
 ```nix
 { pkgs, lib, ... }:
