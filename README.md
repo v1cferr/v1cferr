@@ -1,5 +1,4 @@
-<img src="assets/reproducible.svg" width="880"
-     alt="The same flake.lock, built six years apart, resolving to the identical /nix/store path">
+![The same flake.lock, built six years apart, resolving to the identical /nix/store path](assets/reproducible.svg)
 
 ```nix
 { pkgs, lib, ... }:

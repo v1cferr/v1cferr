@@ -1,0 +1,12 @@
+# MD041 wants the first line to be a top-level heading. This file opens with the
+# banner instead, and the name a heading would repeat is already declared inside
+# the Nix block below it. On a profile README the heading is doubly redundant:
+# GitHub prints the account name directly above the rendered file.
+MD041: false
+
+# MD013 caps line length at 80. The VS Code extension ships with this rule off
+# and the CLI ships with it on, so without this the same file passes in the
+# editor and fails in a terminal. Off in both: the contact line is one run of
+# links that reads worse broken, and the HTML comment holds a URL that cannot
+# be wrapped at all.
+MD013: false
