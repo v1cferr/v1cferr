@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 300" width="880" height="300" role="img"
+     aria-label="The same flake.lock built in 2026 and in 2031 produces the identical /nix/store path. Five years apart, byte for byte.">
+
+  <title>Reproducible by construction</title>
+  <desc>Two builds of the same pinned flake, five years apart, resolving to the identical store path.</desc>
+
+  <defs>
+    <clipPath id="type-left">
+      <rect x="108" y="178" height="20" width="244">
+        <animate attributeName="width" dur="9s" repeatCount="indefinite"
+                 values="0;0;244;244;0;0" keyTimes="0;0.11;0.30;0.93;0.97;1"
+                 calcMode="spline" keySplines="0 0 1 1;0.2 0 0.1 1;0 0 1 1;0.4 0 1 1;0 0 1 1"/>
+      </rect>
+    </clipPath>
+    <clipPath id="type-right">
+      <rect x="528" y="178" height="20" width="244">
+        <animate attributeName="width" dur="9s" repeatCount="indefinite"
+                 values="0;0;244;244;0;0" keyTimes="0;0.13;0.32;0.93;0.97;1"
+                 calcMode="spline" keySplines="0 0 1 1;0.2 0 0.1 1;0 0 1 1;0.4 0 1 1;0 0 1 1"/>
+      </rect>
+    </clipPath>
+  </defs>
+
+  <style>
+    .mono  { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; }
+    .panel { fill: #0d1117; }
+    .edge  { stroke: #30363d; fill: none; }
+    .dim   { fill: #8b949e; }
+    .fg    { fill: #c9d1d9; }
+    .nix   { fill: #7ebae4; }
+  </style>
+
+  <rect class="panel" x="0.5" y="0.5" width="879" height="299" rx="12" stroke="#30363d"/>
+
+  <!-- the two builds, five years apart -->
+  <g class="edge">
+    <rect x="100" y="50" width="260" height="80" rx="6"/>
+    <rect x="520" y="50" width="260" height="80" rx="6"/>
+  </g>
+
+  <!-- year tags, notched into the top border -->
+  <g>
+    <rect class="panel" x="202" y="41" width="56" height="18"/>
+    <rect class="panel" x="622" y="41" width="56" height="18"/>
+    <text class="mono nix" x="230" y="55" font-size="13" text-anchor="middle">2026</text>
+    <text class="mono nix" x="650" y="55" font-size="13" text-anchor="middle">2031</text>
+  </g>
+
+  <g class="mono" font-size="13">
+    <text class="fg"  x="124" y="84">flake.lock</text>
+    <text class="dim" x="124" y="108">nixos-26.05</text>
+    <text class="fg"  x="544" y="84">flake.lock</text>
+    <text class="dim" x="544" y="108">nixos-26.05</text>
+  </g>
+
+  <!-- same input, five years of drift in between -->
+  <g class="edge" stroke-width="1.2">
+    <path d="M230,130 L230,164"/>
+    <path d="M224,158 L230,166 L236,158"/>
+    <path d="M650,130 L650,164"/>
+    <path d="M644,158 L650,166 L656,158"/>
+  </g>
+
+  <!-- the store paths, typed out -->
+  <g>
+    <g clip-path="url(#type-left)">
+      <text class="mono" x="108" y="192" font-size="14">
+        <tspan class="dim">/nix/store/</tspan><tspan class="nix">a3f7b2c9zk</tspan><tspan class="dim">...-system</tspan>
+      </text>
+    </g>
+    <g clip-path="url(#type-right)">
+      <text class="mono" x="528" y="192" font-size="14">
+        <tspan class="dim">/nix/store/</tspan><tspan class="nix">a3f7b2c9zk</tspan><tspan class="dim">...-system</tspan>
+      </text>
+    </g>
+
+    <!-- cursors, visible only while their side is still typing -->
+    <g opacity="0">
+      <animate attributeName="opacity" dur="9s" repeatCount="indefinite"
+               values="0;0;1;1;0;0" keyTimes="0;0.105;0.115;0.30;0.315;1"/>
+      <rect class="nix" x="108" y="180" width="8" height="15" opacity="0.9">
+        <animate attributeName="x" dur="9s" repeatCount="indefinite"
+                 values="108;108;352;352" keyTimes="0;0.11;0.30;1"
+                 calcMode="spline" keySplines="0 0 1 1;0.2 0 0.1 1;0 0 1 1"/>
+      </rect>
+    </g>
+    <g opacity="0">
+      <animate attributeName="opacity" dur="9s" repeatCount="indefinite"
+               values="0;0;1;1;0;0" keyTimes="0;0.125;0.135;0.32;0.335;1"/>
+      <rect class="nix" x="528" y="180" width="8" height="15" opacity="0.9">
+        <animate attributeName="x" dur="9s" repeatCount="indefinite"
+                 values="528;528;772;772" keyTimes="0;0.13;0.32;1"
+                 calcMode="spline" keySplines="0 0 1 1;0.2 0 0.1 1;0 0 1 1"/>
+      </rect>
+    </g>
+  </g>
+
+  <!-- the connector closes, and the two hashes agree -->
+  <path d="M230,202 L230,236 L650,236 L650,202" fill="none" stroke="#3fb950" stroke-width="1.4"
+        stroke-dasharray="488" stroke-dashoffset="0" opacity="0.9">
+    <animate attributeName="stroke-dashoffset" dur="9s" repeatCount="indefinite"
+             values="488;488;0;0;488;488" keyTimes="0;0.34;0.44;0.93;0.96;1"
+             calcMode="spline" keySplines="0 0 1 1;0.3 0 0 1;0 0 1 1;0.4 0 1 1;0 0 1 1"/>
+  </path>
+
+  <g opacity="1">
+    <animate attributeName="opacity" dur="9s" repeatCount="indefinite"
+             values="0;0;1;1;0;0" keyTimes="0;0.44;0.52;0.93;0.965;1"/>
+    <rect class="panel" x="392" y="227" width="96" height="18"/>
+    <text class="mono" x="440" y="241" font-size="13" fill="#3fb950" text-anchor="middle">identical</text>
+  </g>
+
+  <text class="mono dim" x="440" y="276" font-size="13" text-anchor="middle" opacity="1">
+    <animate attributeName="opacity" dur="9s" repeatCount="indefinite"
+             values="0;0;1;1;0;0" keyTimes="0;0.52;0.60;0.93;0.965;1"/>
+    five years apart, byte for byte
+  </text>
+</svg>
