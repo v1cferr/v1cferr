@@ -25,7 +25,7 @@ its own.
 | **[grad-radar](https://github.com/v1cferr/grad-radar)** | Sweeps 19 official sources twice a day, detects changes in admission notices (HTML *and* PDF), and derives eligibility verdicts from quoted evidence. One proven failure eliminates; the absence of failures never approves. 23-table domain model, three test layers. | FastAPI · SQLAlchemy 2.0 async · PostgreSQL 17 · Next.js 16 · Playwright |
 | **[dotfiles](https://github.com/v1cferr/dotfiles)** | My whole workstation as code: NixOS and home-manager in one flake, one command applies system *and* user. Secure Boot with my own keys, btrfs subvolumes, sops-managed secrets. Docs published at [dotfiles.v1cferr.dev](https://dotfiles.v1cferr.dev). | Nix · home-manager · sops-nix · disko · Hyprland |
 | **[acuttis-point](https://github.com/v1cferr/acuttis-point)** | Headless timekeeping RPA that *asks before it acts*: a notification with a button authorises the punch, and a deadline run covers the tap that never comes. Pure domain logic in Gleam, browser work isolated in an adapter. | Gleam · Playwright · NixOS service + timer |
-| **[portfolio-weblog](https://github.com/v1cferr/portfolio-weblog)** | My site, [v1cferr.dev](https://v1cferr.dev), with routing and content in English, Portuguese and Chinese. *(work in progress)* | Next.js 16 App Router · TypeScript · Tailwind · Supabase |
+| **[portfolio-weblog](https://github.com/v1cferr/portfolio-weblog)** | My site, [v1cferr.dev](https://v1cferr.dev), with routing and content in English, Portuguese and Chinese. | Next.js 16 App Router · TypeScript · Tailwind · Supabase |
 
 More in the same vein: [`credit-radar`](https://github.com/v1cferr/credit-radar) (credit
 scores, debts and exposure tracked as one picture),
@@ -39,7 +39,7 @@ normalised into a structured JSON dataset, over plain HTTP with no browser autom
 
 | | |
 | --- | --- |
-| **Languages** | Python · TypeScript · Nix · Gleam · Bash · Java |
+| **Languages** | Python · TypeScript · Nix · Gleam · Bash |
 | **Backend** | FastAPI · SQLAlchemy 2.0 (async) · Alembic · PostgreSQL · Supabase |
 | **Frontend** | Next.js (App Router) · React · Tailwind · Astro |
 | **AI** | LLM integration · RAG · Ollama (local models) · MCP |
@@ -95,7 +95,7 @@ decidir sozinha.
 | **[grad-radar](https://github.com/v1cferr/grad-radar)** | Varre 19 fontes oficiais duas vezes ao dia, detecta mudanças em editais (HTML *e* PDF) e deriva vereditos de elegibilidade a partir de evidência citada. Uma falha comprovada elimina; a ausência de falhas nunca aprova. Modelo de domínio com 23 tabelas, três camadas de teste. | FastAPI · SQLAlchemy 2.0 async · PostgreSQL 17 · Next.js 16 · Playwright |
 | **[dotfiles](https://github.com/v1cferr/dotfiles)** | Minha estação de trabalho inteira como código: NixOS e home-manager em um único flake, um comando aplica sistema *e* usuário. Secure Boot com chaves próprias, subvolumes btrfs, segredos com sops. Documentação publicada em [dotfiles.v1cferr.dev](https://dotfiles.v1cferr.dev). | Nix · home-manager · sops-nix · disko · Hyprland |
 | **[acuttis-point](https://github.com/v1cferr/acuttis-point)** | RPA headless de registro de ponto que *pergunta antes de agir*: uma notificação com botão autoriza a batida, e uma execução no limite do prazo cobre o toque que nunca vem. Lógica de domínio pura em Gleam, navegador isolado em um adaptador. | Gleam · Playwright · serviço + timer NixOS |
-| **[portfolio-weblog](https://github.com/v1cferr/portfolio-weblog)** | Meu site, [v1cferr.dev](https://v1cferr.dev), com rotas e conteúdo em inglês, português e chinês. *(em desenvolvimento)* | Next.js 16 App Router · TypeScript · Tailwind · Supabase |
+| **[portfolio-weblog](https://github.com/v1cferr/portfolio-weblog)** | Meu site, [v1cferr.dev](https://v1cferr.dev), com rotas e conteúdo em inglês, português e chinês. | Next.js 16 App Router · TypeScript · Tailwind · Supabase |
 
 Mais na mesma linha: [`credit-radar`](https://github.com/v1cferr/credit-radar) (score, dívidas
 e exposição de crédito acompanhados como um retrato único),
@@ -109,7 +109,7 @@ normalizadas em um dataset JSON estruturado, em HTTP puro e sem automação de n
 
 | | |
 | --- | --- |
-| **Linguagens** | Python · TypeScript · Nix · Gleam · Bash · Java |
+| **Linguagens** | Python · TypeScript · Nix · Gleam · Bash |
 | **Back-end** | FastAPI · SQLAlchemy 2.0 (async) · Alembic · PostgreSQL · Supabase |
 | **Front-end** | Next.js (App Router) · React · Tailwind · Astro |
 | **IA** | Integração com LLM · RAG · Ollama (modelos locais) · MCP |
@@ -156,7 +156,7 @@ normalizadas em um dataset JSON estruturado, em HTTP puro e sem automação de n
 | **[grad-radar](https://github.com/v1cferr/grad-radar)** | 每天两次扫描 19 个官方来源，检测招生公告（HTML *和* PDF）的变化，并基于引用证据推导资格结论：一项已证实的不符合即淘汰，而没有不符合并不等于通过。23 张表的领域模型，三层测试。 | FastAPI · SQLAlchemy 2.0 async · PostgreSQL 17 · Next.js 16 · Playwright |
 | **[dotfiles](https://github.com/v1cferr/dotfiles)** | 把整台工作站写成代码：NixOS 与 home-manager 合在一个 flake 中，一条命令同时应用系统*和*用户配置。自签密钥的安全启动、btrfs 子卷、用 sops 管理的密钥。文档发布在 [dotfiles.v1cferr.dev](https://dotfiles.v1cferr.dev)。 | Nix · home-manager · sops-nix · disko · Hyprland |
 | **[acuttis-point](https://github.com/v1cferr/acuttis-point)** | 无头考勤打卡 RPA，*先询问再行动*：带按钮的通知用于授权打卡，若无人点击，临近截止的那次运行会兜底。领域逻辑用 Gleam 保持纯粹，浏览器操作隔离在适配器中。 | Gleam · Playwright · NixOS 服务与定时器 |
-| **[portfolio-weblog](https://github.com/v1cferr/portfolio-weblog)** | 我的个人网站 [v1cferr.dev](https://v1cferr.dev)，路由与内容支持英文、葡萄牙文和中文。*（开发中）* | Next.js 16 App Router · TypeScript · Tailwind · Supabase |
+| **[portfolio-weblog](https://github.com/v1cferr/portfolio-weblog)** | 我的个人网站 [v1cferr.dev](https://v1cferr.dev)，路由与内容支持英文、葡萄牙文和中文。 | Next.js 16 App Router · TypeScript · Tailwind · Supabase |
 
 同类的其他项目：[`credit-radar`](https://github.com/v1cferr/credit-radar)（把信用分、债务与
 信用敞口作为一张整图来追踪）、
@@ -170,7 +170,7 @@ normalizadas em um dataset JSON estruturado, em HTTP puro e sem automação de n
 
 | | |
 | --- | --- |
-| **语言** | Python · TypeScript · Nix · Gleam · Bash · Java |
+| **语言** | Python · TypeScript · Nix · Gleam · Bash |
 | **后端** | FastAPI · SQLAlchemy 2.0（异步）· Alembic · PostgreSQL · Supabase |
 | **前端** | Next.js（App Router）· React · Tailwind · Astro |
 | **人工智能** | LLM 集成 · RAG · Ollama（本地模型）· MCP |
