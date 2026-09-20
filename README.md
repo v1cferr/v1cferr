@@ -1,58 +1,80 @@
 # Victor "v1cferr" Ferreira
 
-**AI Systems Analyst at FAI·UFSCar.** I build automation and AI-integrated systems in Python
-and TypeScript, and run them on infrastructure I declare in Nix.
+```nix
+{ pkgs, lib, ... }:
 
-Most of what I ship starts as a problem I actually have: an admission deadline nobody noticed,
-a timekeeping punch made twice, a workstation that had to be rebuilt from scratch. The
-interesting part is never the script. It is deciding what the machine is allowed to decide on
-its own.
+{
+  victor = {
+    name     = "Victor Ferreira";
+    handle   = "v1cferr";
+    role     = "AI Systems Analyst";
+    at       = "FAI·UFSCar";
+    location = "São Carlos, SP, Brazil";
+  };
 
-[v1cferr.dev](https://v1cferr.dev) · [LinkedIn](https://www.linkedin.com/in/v1cferr/) · [dev.victorferreira@gmail.com](mailto:dev.victorferreira@gmail.com) · São Carlos, SP, Brazil
+  environment.systemPackages = with pkgs; [ python313 typescript nix gleam ];
 
-## Currently
+  stack = {
+    backend  = [ "FastAPI" "SQLAlchemy 2.0 (async)" "Alembic" "PostgreSQL" ];
+    frontend = [ "Next.js (App Router)" "React" "Tailwind" ];
+    ai       = [ "RAG" "Ollama" "MCP" ];
+    infra    = [ "NixOS" "Docker Compose" "Caddy" "Playwright" "Azure (Bicep)" ];
+  };
 
-- **Building** [`grad-radar`](https://github.com/v1cferr/grad-radar), which monitors graduate
-  admission calls so that a deadline cannot pass unnoticed.
-- **Running** a self-hosted NixOS machine that serves my own projects behind a single Caddy
-  origin, with systemd timers instead of daemons.
-- **Learning** Gleam, local LLM pipelines (Ollama, RAG) and MCP as an integration surface.
+  services.automation = {
+    enable = true;
+    timers = {
+      # This desktop sleeps at night. A missed sweep runs late, never not at all.
+      grad-radar    = { onCalendar = "08,20:00"; persistent = true; };
+      # One authorisation, taken by whoever gets there first: the tap or the deadline.
+      acuttis-point = { askBefore = true; };
+    };
+  };
 
-## Selected work
+  programs.llm = {
+    enable   = true;
+    provider = "ollama";
+    local    = true;         # nothing leaves the machine
+    trust    = "proposals";  # a model is never the source of a fact
+  };
 
-| Project | What it does | Stack |
-| --- | --- | --- |
-| **[grad-radar](https://github.com/v1cferr/grad-radar)** | Sweeps 19 official sources twice a day, detects changes in admission notices (HTML *and* PDF), and derives eligibility verdicts from quoted evidence. One proven failure eliminates; the absence of failures never approves. 23-table domain model, three test layers. | FastAPI · SQLAlchemy 2.0 async · PostgreSQL 17 · Next.js 16 · Playwright |
-| **[dotfiles](https://github.com/v1cferr/dotfiles)** | My whole workstation as code: NixOS and home-manager in one flake, one command applies system *and* user. Secure Boot with my own keys, btrfs subvolumes, sops-managed secrets. Docs published at [dotfiles.v1cferr.dev](https://dotfiles.v1cferr.dev). | Nix · home-manager · sops-nix · disko · Hyprland |
-| **[acuttis-point](https://github.com/v1cferr/acuttis-point)** | Headless timekeeping RPA that *asks before it acts*: a notification with a button authorises the punch, and a deadline run covers the tap that never comes. Pure domain logic in Gleam, browser work isolated in an adapter. | Gleam · Playwright · NixOS service + timer |
-| **[portfolio-weblog](https://github.com/v1cferr/portfolio-weblog)** | My site, [v1cferr.dev](https://v1cferr.dev), with routing and content in English, Portuguese and Chinese. | Next.js 16 App Router · TypeScript · Tailwind · Supabase |
+  meta.homepage = "https://v1cferr.dev";
+}
+```
 
-More in the same vein: [`credit-radar`](https://github.com/v1cferr/credit-radar) (credit
-scores, debts and exposure tracked as one picture),
-[`ufscar-housing-radar`](https://github.com/v1cferr/ufscar-housing-radar) (collect, compare and
-rank apartments by price, distance and viability),
-[`ascension-coa-scraper`](https://github.com/v1cferr/ascension-coa-scraper) (talent trees
-normalised into a structured JSON dataset, over plain HTTP with no browser automation) and
-[`obsidian-rag`](https://github.com/v1cferr/obsidian-rag) (RAG over a personal Markdown vault).
+Everything up there is real, including the timers.
 
-## Stack
+[v1cferr.dev](https://v1cferr.dev) · [LinkedIn](https://www.linkedin.com/in/v1cferr/) · [dev.victorferreira@gmail.com](mailto:dev.victorferreira@gmail.com)
 
-| | |
-| --- | --- |
-| **Languages** | Python · TypeScript · Nix · Gleam · Bash |
-| **Backend** | FastAPI · SQLAlchemy 2.0 (async) · Alembic · PostgreSQL · Supabase |
-| **Frontend** | Next.js (App Router) · React · Tailwind · Astro |
-| **AI** | LLM integration · RAG · Ollama (local models) · MCP |
-| **Infra** | NixOS · Docker Compose · Caddy · systemd timers · Playwright · Azure (Bicep) |
-| **Tooling** | `just` · `uv` · `pnpm` · direnv · Git |
+## What I build
 
-## How I work
+**[grad-radar](https://github.com/v1cferr/grad-radar)** watches 19 official sources twice a day
+and notices when an admission call changes, PDFs included. It never approves anything on its
+own: one proven failure eliminates a programme, while nothing missing counts in its favour.
+Twenty-three tables, three layers of tests, and every verdict carries the sentence it came from.
 
-- **Declarative and reproducible.** If it isn't in a flake or a compose file, it doesn't exist.
-- **Official sources first**, with the original document preserved and the moment it was read recorded.
-- **Manual first, automate after** the domain is understood, never before.
-- **A model is never the source of a fact.** LLMs propose; verified extraction and human reading decide.
-- **English-first codebases and documentation**, because the repositories are public.
+**[dotfiles](https://github.com/v1cferr/dotfiles)** is the machine all of this runs on. NixOS
+and home-manager in a single flake, Secure Boot signed with my own keys, btrfs subvolumes,
+secrets through sops. I wrote down why each module exists, and that became
+[dotfiles.v1cferr.dev](https://dotfiles.v1cferr.dev).
+
+**[acuttis-point](https://github.com/v1cferr/acuttis-point)** punches my timecard, but only
+after I say yes. It sends a notification with a button on it; if nobody taps, a run near the
+end of the window punches anyway. That shape came from the two days it did not have it, when a
+manual punch landed minutes after the automatic one and the system read it as a lunch break
+that began nine minutes after arriving.
+
+**[portfolio-weblog](https://github.com/v1cferr/portfolio-weblog)** is
+[v1cferr.dev](https://v1cferr.dev), with routing and content in English, Portuguese and Chinese.
+
+Smaller ones, same habit: [`credit-radar`](https://github.com/v1cferr/credit-radar) keeps
+scores, debts and exposure in one picture.
+[`ufscar-housing-radar`](https://github.com/v1cferr/ufscar-housing-radar) ranks apartments by
+price, distance and whether they are actually viable.
+[`ascension-coa-scraper`](https://github.com/v1cferr/ascension-coa-scraper) turns talent trees
+into a JSON dataset over plain HTTP, with no browser anywhere near it. And
+[`obsidian-rag`](https://github.com/v1cferr/obsidian-rag) answers questions about my own notes
+without any of them leaving the room.
 
 <!--
 A language/stats card can go here, e.g.:
@@ -70,59 +92,41 @@ broken image, which reads worse than no card at all. Self-host it if you want it
 
 # Victor "v1cferr" Ferreira
 
-**Analista de Sistemas de IA na FAI·UFSCar.** Construo sistemas de automação e integração com
-IA em Python e TypeScript, e os executo sobre uma infraestrutura que declaro em Nix.
+O bloco Nix acima vale nos três idiomas, então não o repito aqui.
 
-Quase tudo que eu entrego começa como um problema que eu realmente tenho: um prazo de edital
-que ninguém viu, um ponto batido duas vezes, uma estação de trabalho que precisou ser remontada
-do zero. A parte interessante nunca é o script. É decidir o que a máquina tem permissão de
-decidir sozinha.
+Tudo o que está nele é real, inclusive os timers.
 
-[v1cferr.dev](https://v1cferr.dev) · [LinkedIn](https://www.linkedin.com/in/v1cferr/) · [dev.victorferreira@gmail.com](mailto:dev.victorferreira@gmail.com) · São Carlos, SP, Brasil
+[v1cferr.dev](https://v1cferr.dev) · [LinkedIn](https://www.linkedin.com/in/v1cferr/) · [dev.victorferreira@gmail.com](mailto:dev.victorferreira@gmail.com)
 
-## No momento
+## O que eu construo
 
-- **Construindo** o [`grad-radar`](https://github.com/v1cferr/grad-radar), que monitora editais
-  de pós-graduação para que nenhum prazo passe despercebido.
-- **Mantendo** uma máquina NixOS self-hosted que serve meus próprios projetos atrás de uma única
-  origem Caddy, com timers do systemd em vez de daemons.
-- **Estudando** Gleam, pipelines de LLM local (Ollama, RAG) e MCP como superfície de integração.
+**[grad-radar](https://github.com/v1cferr/grad-radar)** observa 19 fontes oficiais duas vezes
+ao dia e percebe quando um edital muda, PDFs inclusive. Ele nunca aprova nada sozinho: uma
+falha comprovada elimina um programa, enquanto o que está faltando não conta a favor. São 23
+tabelas, três camadas de teste, e todo veredito carrega a frase de onde veio.
 
-## Trabalhos selecionados
+**[dotfiles](https://github.com/v1cferr/dotfiles)** é a máquina onde tudo isso roda. NixOS e
+home-manager num único flake, Secure Boot assinado com chaves minhas, subvolumes btrfs,
+segredos via sops. Escrevi por que cada módulo existe, e aquilo virou
+[dotfiles.v1cferr.dev](https://dotfiles.v1cferr.dev).
 
-| Projeto | O que faz | Stack |
-| --- | --- | --- |
-| **[grad-radar](https://github.com/v1cferr/grad-radar)** | Varre 19 fontes oficiais duas vezes ao dia, detecta mudanças em editais (HTML *e* PDF) e deriva vereditos de elegibilidade a partir de evidência citada. Uma falha comprovada elimina; a ausência de falhas nunca aprova. Modelo de domínio com 23 tabelas, três camadas de teste. | FastAPI · SQLAlchemy 2.0 async · PostgreSQL 17 · Next.js 16 · Playwright |
-| **[dotfiles](https://github.com/v1cferr/dotfiles)** | Minha estação de trabalho inteira como código: NixOS e home-manager em um único flake, um comando aplica sistema *e* usuário. Secure Boot com chaves próprias, subvolumes btrfs, segredos com sops. Documentação publicada em [dotfiles.v1cferr.dev](https://dotfiles.v1cferr.dev). | Nix · home-manager · sops-nix · disko · Hyprland |
-| **[acuttis-point](https://github.com/v1cferr/acuttis-point)** | RPA headless de registro de ponto que *pergunta antes de agir*: uma notificação com botão autoriza a batida, e uma execução no limite do prazo cobre o toque que nunca vem. Lógica de domínio pura em Gleam, navegador isolado em um adaptador. | Gleam · Playwright · serviço + timer NixOS |
-| **[portfolio-weblog](https://github.com/v1cferr/portfolio-weblog)** | Meu site, [v1cferr.dev](https://v1cferr.dev), com rotas e conteúdo em inglês, português e chinês. | Next.js 16 App Router · TypeScript · Tailwind · Supabase |
+**[acuttis-point](https://github.com/v1cferr/acuttis-point)** bate meu ponto, mas só depois que
+eu digo sim. Ele manda uma notificação com um botão; se ninguém toca, uma execução perto do fim
+da janela bate assim mesmo. Esse formato nasceu dos dois dias em que ele não o tinha, quando uma
+batida manual caiu minutos depois da automática e o sistema leu aquilo como um almoço que
+começou nove minutos depois da chegada.
 
-Mais na mesma linha: [`credit-radar`](https://github.com/v1cferr/credit-radar) (score, dívidas
-e exposição de crédito acompanhados como um retrato único),
-[`ufscar-housing-radar`](https://github.com/v1cferr/ufscar-housing-radar) (coletar, comparar e
-ranquear apartamentos por preço, distância e viabilidade),
-[`ascension-coa-scraper`](https://github.com/v1cferr/ascension-coa-scraper) (árvores de talento
-normalizadas em um dataset JSON estruturado, em HTTP puro e sem automação de navegador) e
-[`obsidian-rag`](https://github.com/v1cferr/obsidian-rag) (RAG sobre um cofre pessoal em Markdown).
+**[portfolio-weblog](https://github.com/v1cferr/portfolio-weblog)** é o
+[v1cferr.dev](https://v1cferr.dev), com rotas e conteúdo em inglês, português e chinês.
 
-## Stack
-
-| | |
-| --- | --- |
-| **Linguagens** | Python · TypeScript · Nix · Gleam · Bash |
-| **Back-end** | FastAPI · SQLAlchemy 2.0 (async) · Alembic · PostgreSQL · Supabase |
-| **Front-end** | Next.js (App Router) · React · Tailwind · Astro |
-| **IA** | Integração com LLM · RAG · Ollama (modelos locais) · MCP |
-| **Infra** | NixOS · Docker Compose · Caddy · timers do systemd · Playwright · Azure (Bicep) |
-| **Ferramentas** | `just` · `uv` · `pnpm` · direnv · Git |
-
-## Como eu trabalho
-
-- **Declarativo e reprodutível.** Se não está em um flake ou em um compose, não existe.
-- **Fontes oficiais primeiro**, preservando o documento original e registrando quando foi lido.
-- **Manual primeiro, automatizar depois** de entender o domínio, nunca antes.
-- **Um modelo nunca é a fonte de um fato.** LLMs propõem; extração verificada e leitura humana decidem.
-- **Código e documentação em inglês**, porque os repositórios são públicos.
+Os menores, mesmo hábito: [`credit-radar`](https://github.com/v1cferr/credit-radar) mantém
+score, dívidas e exposição num retrato só.
+[`ufscar-housing-radar`](https://github.com/v1cferr/ufscar-housing-radar) ranqueia apartamentos
+por preço, distância e se são de fato viáveis.
+[`ascension-coa-scraper`](https://github.com/v1cferr/ascension-coa-scraper) transforma árvores
+de talento em um dataset JSON sobre HTTP puro, sem nenhum navegador por perto. E o
+[`obsidian-rag`](https://github.com/v1cferr/obsidian-rag) responde perguntas sobre as minhas
+próprias notas sem que nenhuma delas saia da sala.
 
 </details>
 
@@ -133,56 +137,37 @@ normalizadas em um dataset JSON estruturado, em HTTP puro e sem automação de n
 
 # Victor "v1cferr" Ferreira
 
-**FAI·UFSCar 人工智能系统分析师。** 我用 Python 和 TypeScript 构建自动化与 AI 集成系统，
-并将它们运行在我用 Nix 声明式定义的基础设施上。
+上面的 Nix 代码块三种语言通用，这里不再重复。
 
-我做的大部分项目都源于我自己真实遇到的问题：一个没人注意到的招生截止日期、一次重复打卡、
-一台需要从零重建的工作站。有意思的部分从来不是脚本本身，而是决定机器可以自己决定什么。
+里面写的都是真的，包括那些定时器。
 
-[v1cferr.dev](https://v1cferr.dev) · [LinkedIn](https://www.linkedin.com/in/v1cferr/) · [dev.victorferreira@gmail.com](mailto:dev.victorferreira@gmail.com) · 巴西圣卡洛斯
+[v1cferr.dev](https://v1cferr.dev) · [LinkedIn](https://www.linkedin.com/in/v1cferr/) · [dev.victorferreira@gmail.com](mailto:dev.victorferreira@gmail.com)
 
-## 目前
+## 我在做什么
 
-- **正在构建** [`grad-radar`](https://github.com/v1cferr/grad-radar)，用于监控研究生招生公告，
-  确保任何截止日期都不会被漏掉。
-- **正在维护** 一台自托管的 NixOS 主机，通过单一 Caddy 入口提供我自己的项目服务，
-  用 systemd 定时器而非常驻守护进程。
-- **正在学习** Gleam、本地 LLM 流水线（Ollama、RAG）以及作为集成接口的 MCP。
+**[grad-radar](https://github.com/v1cferr/grad-radar)** 每天两次盯着 19 个官方来源，
+在招生公告发生变化时察觉到，PDF 也算在内。它从不自己下达通过的结论：一项已证实的不符合
+就淘汰一个项目，而缺失的信息不会算作有利条件。23 张表、三层测试，每个结论都带着它所依据的那句原文。
 
-## 精选项目
+**[dotfiles](https://github.com/v1cferr/dotfiles)** 就是这一切运行的那台机器。NixOS 与
+home-manager 合在一个 flake 里，用自己的密钥签名的安全启动、btrfs 子卷、经由 sops 管理的密钥。
+我把每个模块存在的理由都写了下来，那些文字变成了
+[dotfiles.v1cferr.dev](https://dotfiles.v1cferr.dev)。
 
-| 项目 | 简介 | 技术栈 |
-| --- | --- | --- |
-| **[grad-radar](https://github.com/v1cferr/grad-radar)** | 每天两次扫描 19 个官方来源，检测招生公告（HTML *和* PDF）的变化，并基于引用证据推导资格结论：一项已证实的不符合即淘汰，而没有不符合并不等于通过。23 张表的领域模型，三层测试。 | FastAPI · SQLAlchemy 2.0 async · PostgreSQL 17 · Next.js 16 · Playwright |
-| **[dotfiles](https://github.com/v1cferr/dotfiles)** | 把整台工作站写成代码：NixOS 与 home-manager 合在一个 flake 中，一条命令同时应用系统*和*用户配置。自签密钥的安全启动、btrfs 子卷、用 sops 管理的密钥。文档发布在 [dotfiles.v1cferr.dev](https://dotfiles.v1cferr.dev)。 | Nix · home-manager · sops-nix · disko · Hyprland |
-| **[acuttis-point](https://github.com/v1cferr/acuttis-point)** | 无头考勤打卡 RPA，*先询问再行动*：带按钮的通知用于授权打卡，若无人点击，临近截止的那次运行会兜底。领域逻辑用 Gleam 保持纯粹，浏览器操作隔离在适配器中。 | Gleam · Playwright · NixOS 服务与定时器 |
-| **[portfolio-weblog](https://github.com/v1cferr/portfolio-weblog)** | 我的个人网站 [v1cferr.dev](https://v1cferr.dev)，路由与内容支持英文、葡萄牙文和中文。 | Next.js 16 App Router · TypeScript · Tailwind · Supabase |
+**[acuttis-point](https://github.com/v1cferr/acuttis-point)** 替我打考勤卡，但要等我点头之后。
+它会发一条带按钮的通知；如果没人点，接近时间窗口末尾的那次运行仍然会打卡。这个设计来自它还没有
+这层保护的那两天：一次手动打卡落在自动打卡之后几分钟，系统把它读成了一段在到岗九分钟后就开始的午休。
 
-同类的其他项目：[`credit-radar`](https://github.com/v1cferr/credit-radar)（把信用分、债务与
-信用敞口作为一张整图来追踪）、
-[`ufscar-housing-radar`](https://github.com/v1cferr/ufscar-housing-radar)（按价格、距离与
-可行性采集、比较并排序公寓）、
-[`ascension-coa-scraper`](https://github.com/v1cferr/ascension-coa-scraper)（把天赋树归一化为
-结构化 JSON 数据集，纯 HTTP，不用浏览器自动化），以及
-[`obsidian-rag`](https://github.com/v1cferr/obsidian-rag)（在个人 Markdown 知识库上做 RAG）。
+**[portfolio-weblog](https://github.com/v1cferr/portfolio-weblog)** 就是
+[v1cferr.dev](https://v1cferr.dev)，路由与内容支持英文、葡萄牙文和中文。
 
-## 技术栈
-
-| | |
-| --- | --- |
-| **语言** | Python · TypeScript · Nix · Gleam · Bash |
-| **后端** | FastAPI · SQLAlchemy 2.0（异步）· Alembic · PostgreSQL · Supabase |
-| **前端** | Next.js（App Router）· React · Tailwind · Astro |
-| **人工智能** | LLM 集成 · RAG · Ollama（本地模型）· MCP |
-| **基础设施** | NixOS · Docker Compose · Caddy · systemd 定时器 · Playwright · Azure（Bicep） |
-| **工具** | `just` · `uv` · `pnpm` · direnv · Git |
-
-## 我的工作方式
-
-- **声明式且可复现。** 不在 flake 或 compose 文件里的东西，就等于不存在。
-- **官方来源优先**，保留原始文档，并记录读取的时刻。
-- **先手工，后自动化：** 在理解领域之后，而不是之前。
-- **模型永远不是事实的来源。** LLM 只负责提议；经过验证的抽取和人工阅读才做决定。
-- **代码与文档以英文为先**，因为这些仓库是公开的。
+一些更小的，习惯相同：[`credit-radar`](https://github.com/v1cferr/credit-radar) 把信用分、
+债务与信用敞口放进同一张图里。
+[`ufscar-housing-radar`](https://github.com/v1cferr/ufscar-housing-radar) 按价格、距离以及
+是否真的可行来排序公寓。
+[`ascension-coa-scraper`](https://github.com/v1cferr/ascension-coa-scraper) 用纯 HTTP
+把天赋树变成 JSON 数据集，全程不让浏览器靠近。
+[`obsidian-rag`](https://github.com/v1cferr/obsidian-rag) 回答关于我自己笔记的问题，
+而这些笔记一条都不会离开房间。
 
 </details>
