@@ -1,7 +1,7 @@
 ![The same flake.lock, built six years apart, resolving to the identical /nix/store path](assets/reproducible.svg)
 
 ```nix
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
   victor = {
@@ -19,6 +19,13 @@
     frontend = [ "Next.js (App Router)" "React" "Tailwind" ];
     ai       = [ "RAG" "Ollama" "MCP" ];
     infra    = [ "NixOS" "Docker Compose" "Caddy" "Playwright" "Azure (Bicep)" ];
+  };
+
+  projects = {
+    dotfiles      = "this machine, declared";
+    grad-radar    = "19 official sources, swept twice a day";
+    acuttis-point = "a timeclock that asks before it acts";
+    obsidian-rag  = "RAG over my own notes, all local";
   };
 
   networking.hostName = "nixos-kingston";
