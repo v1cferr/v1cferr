@@ -1,225 +1,188 @@
-<details open>
-  <summary>:us: English</summary>
+# Victor Ferreira
 
-# Hi, I'm Victor "v1cferr" Ferreira
+**AI Systems Analyst at FAI·UFSCar** — I build automation and
+AI-integrated systems in Python and TypeScript, and run them on infrastructure I declare in Nix.
 
-Front-end Developer | TypeScript, Python & FastAPI | IT Management Student | Exploring AI & Backend Integration
+Most of what I ship starts as a problem I actually have: an admission deadline nobody
+noticed, a timekeeping punch made twice, a workstation that had to be rebuilt from scratch.
+The interesting part is never the script — it is the decision of what the machine is allowed
+to decide on its own.
 
-<img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWNhbnNmdW16aHRqenhpbjlubmVkMmxreGJ1eDkwaGY2NWM4YmY5dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qgQUggAC3Pfv687qPC/giphy.gif" align="right" width="200" alt="Lofi Coding GIF"/>
+🌐 [v1cferr.dev](https://v1cferr.dev) · 💼 [LinkedIn](https://www.linkedin.com/in/v1cferr/) · ✉️ [dev.victorferreira@gmail.com](mailto:dev.victorferreira@gmail.com) · 📍 São Carlos, SP — Brazil
 
-I am a Full-Stack Developer with a strong focus on Front-end. My current projects involve integrating AI models into web applications, automating workflows, and building dynamic, responsive interfaces. While I have experience across the stack, my primary expertise is in Front-end development (TypeScript, React, Next.js) coupled with Python-based back-end services (FastAPI).
+## Currently
 
-## 🔧 Technologies & Tools
+- **Building** [`grad-radar`](https://github.com/v1cferr/grad-radar) — monitoring graduate
+  admission calls so a deadline can't pass unnoticed.
+- **Running** a self-hosted NixOS machine that serves my own projects behind a single Caddy
+  origin, with systemd timers instead of daemons.
+- **Learning** Gleam, local LLM pipelines (Ollama, RAG) and MCP as an integration surface.
 
-<div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
-  <!-- Languages -->
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black" alt="JavaScript"/>
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white" alt="TypeScript"/>
-  <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python"/>
-  <img src="https://img.shields.io/badge/Bash-4EAA25?style=flat&logo=gnu-bash&logoColor=white" alt="Bash"/>
+## Selected work
 
-  <!-- Frameworks/Libraries -->
-  <img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black" alt="React"/>
-  <img src="https://img.shields.io/badge/Next.js-000000?style=flat&logo=nextdotjs&logoColor=white" alt="Next.js"/>
-  <img src="https://img.shields.io/badge/Astro-FF5D01?style=flat&logo=astro&logoColor=white" alt="Astro"/>
-  <img src="https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white" alt="FastAPI"/>
+| Project | What it does | Stack |
+| --- | --- | --- |
+| **[grad-radar](https://github.com/v1cferr/grad-radar)** | Sweeps 19 official sources twice a day, detects changes in admission notices (HTML *and* PDF), and derives eligibility verdicts from quoted evidence — one proven failure eliminates, absence of failure never approves. 23-table domain model, three test layers. | FastAPI · SQLAlchemy 2.0 async · PostgreSQL 17 · Next.js 16 · Playwright |
+| **[dotfiles](https://github.com/v1cferr/dotfiles)** | My whole workstation as code: NixOS and home-manager in one flake, one command applies system *and* user. Secure Boot with my own keys, btrfs subvolumes, sops-managed secrets. Docs published at [dotfiles.v1cferr.dev](https://dotfiles.v1cferr.dev). | Nix · home-manager · sops-nix · disko · Hyprland |
+| **[acuttis-point](https://github.com/v1cferr/acuttis-point)** | Headless timekeeping RPA that *asks before it acts*: a notification with a button authorises the punch, and a deadline run covers the tap that never comes. Pure domain logic in Gleam, browser work isolated in an adapter. | Gleam · Playwright · NixOS service + timer |
+| **[portfolio-weblog](https://github.com/v1cferr/portfolio-weblog)** | My site — [v1cferr.dev](https://v1cferr.dev) — with routing and content in English, Portuguese and Chinese. *(work in progress)* | Next.js 16 App Router · TypeScript · Tailwind · Supabase |
 
-  <!-- Databases -->
-  <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white" alt="MySQL"/>
-  <img src="https://img.shields.io/badge/PostgreSQL-316192?style=flat&logo=postgresql&logoColor=white" alt="PostgreSQL"/>
-  <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=flat&logo=supabase&logoColor=white" alt="Supabase"/>
+More in the same vein: [`credit-radar`](https://github.com/v1cferr/credit-radar) (credit
+scores, debts and exposure tracked as one picture),
+[`ufscar-housing-radar`](https://github.com/v1cferr/ufscar-housing-radar) (collect, compare and
+rank apartments by price, distance and viability),
+[`ascension-coa-scraper`](https://github.com/v1cferr/ascension-coa-scraper) (talent trees
+normalised into a structured JSON dataset — plain HTTP, no browser automation) and
+[`obsidian-rag`](https://github.com/v1cferr/obsidian-rag) (RAG over a personal Markdown vault).
 
-  <!-- Tools -->
-  <img src="https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white" alt="Vite"/>
-  <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white" alt="Docker"/>
-  <img src="https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white" alt="Git"/>
-  <img src="https://img.shields.io/badge/Swagger-85EA2D?style=flat&logo=swagger&logoColor=black" alt="Swagger"/>
-</div>
+## Stack
 
-## Naming Convention
+| | |
+| --- | --- |
+| **Languages** | Python · TypeScript · Nix · Gleam · Bash · Java |
+| **Backend** | FastAPI · SQLAlchemy 2.0 (async) · Alembic · PostgreSQL · Supabase |
+| **Frontend** | Next.js (App Router) · React · Tailwind · Astro |
+| **AI** | LLM integration · RAG · Ollama (local models) · MCP |
+| **Infra** | NixOS · Docker Compose · Caddy · systemd timers · Playwright · Azure (Bicep) |
+| **Tooling** | `just` · `uv` · `pnpm` · direnv · Git |
 
-To ensure consistency and readability across repositories, directories, and files, I follow these naming patterns:
+## How I work
 
-- **lowercase**  
-  Used for single-word directories or filenames. All letters are lowercase and no separators.  
-  _Example:_ `docs`, `scripts`, `assets`
+- **Declarative and reproducible.** If it isn't in a flake or a compose file, it doesn't exist.
+- **Official sources first**, with the original document preserved and the moment it was read recorded.
+- **Manual first, automate after** the domain is understood — not before.
+- **A model is never the source of a fact.** LLMs propose; verified extraction and human reading decide.
+- **English-first codebases and documentation**, because the repositories are public.
 
-- **kebab-case**  
-  Used for multi-word project names, repository names, and configuration files. Words are lowercase and separated by hyphens.  
-  _Example:_ `portfolio-weblog`, `personal-hub-config`, `ai-automation-scripts`
+<!--
+A language/stats card can go here, e.g.:
+https://github-readme-stats.vercel.app/api/top-langs/?username=v1cferr&layout=compact&langs_count=8&hide=html,css,tex&hide_border=true
+Left out on purpose: the public instance is frequently rate-limited and renders as a
+broken image, which reads worse than no card at all. Self-host it if you want it back.
+-->
 
-These patterns guarantee compatibility across operating systems and align with widely adopted open-source conventions.
+---
 
-## 📊 GitHub Stats
+<details>
+<summary>🇧🇷 <strong>Português</strong></summary>
 
-<div style="display: flex; flex-wrap: wrap; gap: 10px;">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=v1cferr&layout=compact&theme=radical" alt="Top Languages" height="140"/>
-  <img src="https://github-readme-stats.vercel.app/api?username=v1cferr&show_icons=true&theme=radical" alt="GitHub Stats" height="140"/>
-</div>
+<br>
 
-## 📫 How to Reach Me
+# Victor Ferreira
 
-<div style="display: flex; gap: 12px; align-items: center;">
-  <a href="https://www.linkedin.com/in/v1cferr/" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
-  </a>
-  <a href="mailto:dev.victorferreira@gmail.com">
-    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/>
-  </a>
-</div>
+**Analista de Sistemas de IA na FAI·UFSCar** — construo sistemas de
+automação e integração com IA em Python e TypeScript, e os executo sobre uma infraestrutura que
+declaro em Nix.
 
-*Updated in June 2025*
+Quase tudo que eu entrego começa como um problema que eu realmente tenho: um prazo de edital que
+ninguém viu, um ponto batido duas vezes, uma estação de trabalho que precisou ser remontada do zero.
+A parte interessante nunca é o script — é decidir o que a máquina tem permissão de decidir sozinha.
+
+🌐 [v1cferr.dev](https://v1cferr.dev) · 💼 [LinkedIn](https://www.linkedin.com/in/v1cferr/) · ✉️ [dev.victorferreira@gmail.com](mailto:dev.victorferreira@gmail.com) · 📍 São Carlos, SP — Brasil
+
+## No momento
+
+- **Construindo** o [`grad-radar`](https://github.com/v1cferr/grad-radar) — monitoramento de
+  editais de pós-graduação para que nenhum prazo passe despercebido.
+- **Mantendo** uma máquina NixOS self-hosted que serve meus próprios projetos atrás de uma única
+  origem Caddy, com timers do systemd em vez de daemons.
+- **Estudando** Gleam, pipelines de LLM local (Ollama, RAG) e MCP como superfície de integração.
+
+## Trabalhos selecionados
+
+| Projeto | O que faz | Stack |
+| --- | --- | --- |
+| **[grad-radar](https://github.com/v1cferr/grad-radar)** | Varre 19 fontes oficiais duas vezes ao dia, detecta mudanças em editais (HTML *e* PDF) e deriva vereditos de elegibilidade a partir de evidência citada — uma falha comprovada elimina, a ausência de falha nunca aprova. Modelo de domínio com 23 tabelas, três camadas de teste. | FastAPI · SQLAlchemy 2.0 async · PostgreSQL 17 · Next.js 16 · Playwright |
+| **[dotfiles](https://github.com/v1cferr/dotfiles)** | Minha estação de trabalho inteira como código: NixOS e home-manager em um único flake, um comando aplica sistema *e* usuário. Secure Boot com chaves próprias, subvolumes btrfs, segredos com sops. Documentação publicada em [dotfiles.v1cferr.dev](https://dotfiles.v1cferr.dev). | Nix · home-manager · sops-nix · disko · Hyprland |
+| **[acuttis-point](https://github.com/v1cferr/acuttis-point)** | RPA headless de registro de ponto que *pergunta antes de agir*: uma notificação com botão autoriza a batida, e uma execução no limite do prazo cobre o toque que nunca vem. Lógica de domínio pura em Gleam, navegador isolado em um adaptador. | Gleam · Playwright · serviço + timer NixOS |
+| **[portfolio-weblog](https://github.com/v1cferr/portfolio-weblog)** | Meu site — [v1cferr.dev](https://v1cferr.dev) — com rotas e conteúdo em inglês, português e chinês. *(em desenvolvimento)* | Next.js 16 App Router · TypeScript · Tailwind · Supabase |
+
+Mais na mesma linha: [`credit-radar`](https://github.com/v1cferr/credit-radar) (score,
+dívidas e exposição de crédito acompanhados como um retrato único),
+[`ufscar-housing-radar`](https://github.com/v1cferr/ufscar-housing-radar) (coletar, comparar e
+ranquear apartamentos por preço, distância e viabilidade),
+[`ascension-coa-scraper`](https://github.com/v1cferr/ascension-coa-scraper) (árvores de talento
+normalizadas em um dataset JSON estruturado — HTTP puro, sem automação de navegador) e
+[`obsidian-rag`](https://github.com/v1cferr/obsidian-rag) (RAG sobre um cofre pessoal em Markdown).
+
+## Stack
+
+| | |
+| --- | --- |
+| **Linguagens** | Python · TypeScript · Nix · Gleam · Bash · Java |
+| **Back-end** | FastAPI · SQLAlchemy 2.0 (async) · Alembic · PostgreSQL · Supabase |
+| **Front-end** | Next.js (App Router) · React · Tailwind · Astro |
+| **IA** | Integração com LLM · RAG · Ollama (modelos locais) · MCP |
+| **Infra** | NixOS · Docker Compose · Caddy · timers do systemd · Playwright · Azure (Bicep) |
+| **Ferramentas** | `just` · `uv` · `pnpm` · direnv · Git |
+
+## Como eu trabalho
+
+- **Declarativo e reprodutível.** Se não está em um flake ou em um compose, não existe.
+- **Fontes oficiais primeiro**, preservando o documento original e registrando quando foi lido.
+- **Manual primeiro, automatizar depois** de entender o domínio — nunca antes.
+- **Um modelo nunca é a fonte de um fato.** LLMs propõem; extração verificada e leitura humana decidem.
+- **Código e documentação em inglês**, porque os repositórios são públicos.
 
 </details>
 
-
-
 <details>
-  <summary>:brazil: Português</summary>
+<summary>🇨🇳 <strong>中文</strong></summary>
 
-# Olá, sou Victor "v1cferr" Ferreira
+<br>
 
-Desenvolvedor Front-end | TypeScript, Python & FastAPI | Estudante de Gestão de TI | Explorando Integração de IA e Backend
+# Victor Ferreira
 
-<img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWNhbnNmdW16aHRqenhpbjlubmVkMmxreGJ1eDkwaGY2NWM4YmY5dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qgQUggAC3Pfv687qPC/giphy.gif" align="right" width="200" alt="GIF Lofi Coding"/>
+**FAI·UFSCar 人工智能系统分析师** —— 我用 Python 和 TypeScript
+构建自动化与 AI 集成系统，并将它们运行在我用 Nix 声明式定义的基础设施上。
 
-Sou um Desenvolvedor Full-Stack com foco no Front-end. Meus projetos atuais envolvem integrar modelos de IA em aplicações web, automatizar workflows e construir interfaces dinâmicas e responsivas. Embora eu tenha experiência em toda a stack, minha expertise principal é em desenvolvimento Front-end (TypeScript, React, Next.js) aliado a serviços de back-end em Python (FastAPI).
+我做的大部分项目都源于我自己真实遇到的问题：一个没人注意到的招生截止日期、一次重复打卡、
+一台需要从零重建的工作站。有意思的部分从来不是脚本本身，而是决定机器可以自己决定什么。
 
-## 🔧 Tecnologias e Ferramentas
+🌐 [v1cferr.dev](https://v1cferr.dev) · 💼 [LinkedIn](https://www.linkedin.com/in/v1cferr/) · ✉️ [dev.victorferreira@gmail.com](mailto:dev.victorferreira@gmail.com) · 📍 巴西圣卡洛斯
 
-<div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
-  <!-- Linguagens -->
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black" alt="JavaScript"/>
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white" alt="TypeScript"/>
-  <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python"/>
-  <img src="https://img.shields.io/badge/Bash-4EAA25?style=flat&logo=gnu-bash&logoColor=white" alt="Bash"/>
+## 目前
 
-  <!-- Frameworks/Bibliotecas -->
-  <img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black" alt="React"/>
-  <img src="https://img.shields.io/badge/Next.js-000000?style=flat&logo=nextdotjs&logoColor=white" alt="Next.js"/>
-  <img src="https://img.shields.io/badge/Astro-FF5D01?style=flat&logo=astro&logoColor=white" alt="Astro"/>
-  <img src="https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white" alt="FastAPI"/>
+- **正在构建** [`grad-radar`](https://github.com/v1cferr/grad-radar) —— 监控研究生招生公告，
+  确保任何截止日期都不会被漏掉。
+- **正在维护** 一台自托管的 NixOS 主机，通过单一 Caddy 入口提供我自己的项目服务，
+  用 systemd 定时器而非常驻守护进程。
+- **正在学习** Gleam、本地 LLM 流水线（Ollama、RAG）以及作为集成接口的 MCP。
 
-  <!-- Bancos de Dados -->
-  <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white" alt="MySQL"/>
-  <img src="https://img.shields.io/badge/PostgreSQL-316192?style=flat&logo=postgresql&logoColor=white" alt="PostgreSQL"/>
-  <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=flat&logo=supabase&logoColor=white" alt="Supabase"/>
+## 精选项目
 
-  <!-- Ferramentas -->
-  <img src="https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white" alt="Vite"/>
-  <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white" alt="Docker"/>
-  <img src="https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white" alt="Git"/>
-  <img src="https://img.shields.io/badge/Swagger-85EA2D?style=flat&logo=swagger&logoColor=black" alt="Swagger"/>
-</div>
+| 项目 | 简介 | 技术栈 |
+| --- | --- | --- |
+| **[grad-radar](https://github.com/v1cferr/grad-radar)** | 每天两次扫描 19 个官方来源，检测招生公告（HTML *和* PDF）的变化，并基于引用证据推导资格结论——一项已证实的不符合即淘汰，而没有不符合并不等于通过。23 张表的领域模型，三层测试。 | FastAPI · SQLAlchemy 2.0 async · PostgreSQL 17 · Next.js 16 · Playwright |
+| **[dotfiles](https://github.com/v1cferr/dotfiles)** | 把整台工作站写成代码：NixOS 与 home-manager 合在一个 flake 中，一条命令同时应用系统*和*用户配置。自签密钥的安全启动、btrfs 子卷、用 sops 管理的密钥。文档发布在 [dotfiles.v1cferr.dev](https://dotfiles.v1cferr.dev)。 | Nix · home-manager · sops-nix · disko · Hyprland |
+| **[acuttis-point](https://github.com/v1cferr/acuttis-point)** | 无头考勤打卡 RPA，*先询问再行动*：带按钮的通知用于授权打卡，若无人点击，临近截止的那次运行会兜底。领域逻辑用 Gleam 保持纯粹，浏览器操作隔离在适配器中。 | Gleam · Playwright · NixOS 服务与定时器 |
+| **[portfolio-weblog](https://github.com/v1cferr/portfolio-weblog)** | 我的个人网站 —— [v1cferr.dev](https://v1cferr.dev) —— 路由与内容支持英文、葡萄牙文和中文。*（开发中）* | Next.js 16 App Router · TypeScript · Tailwind · Supabase |
 
-## Convenção de Nomenclatura
+同类的其他项目：[`credit-radar`](https://github.com/v1cferr/credit-radar)（把信用分、
+债务与信用敞口作为一张整图来追踪）、
+[`ufscar-housing-radar`](https://github.com/v1cferr/ufscar-housing-radar)（按价格、距离与可行性
+采集、比较并排序公寓）、
+[`ascension-coa-scraper`](https://github.com/v1cferr/ascension-coa-scraper)（把天赋树归一化为
+结构化 JSON 数据集——纯 HTTP，不用浏览器自动化），以及
+[`obsidian-rag`](https://github.com/v1cferr/obsidian-rag)（在个人 Markdown 知识库上做 RAG）。
 
-Para garantir consistência e legibilidade entre repositórios, diretórios e arquivos, sigo estes padrões de nomenclatura:
+## 技术栈
 
-- **lowercase**  
-  Utilizado para diretórios ou arquivos de uma palavra. Todas as letras minúsculas e sem separadores.  
-  _Exemplo:_ `docs`, `scripts`, `assets`
+| | |
+| --- | --- |
+| **语言** | Python · TypeScript · Nix · Gleam · Bash · Java |
+| **后端** | FastAPI · SQLAlchemy 2.0（异步）· Alembic · PostgreSQL · Supabase |
+| **前端** | Next.js（App Router）· React · Tailwind · Astro |
+| **人工智能** | LLM 集成 · RAG · Ollama（本地模型）· MCP |
+| **基础设施** | NixOS · Docker Compose · Caddy · systemd 定时器 · Playwright · Azure（Bicep） |
+| **工具** | `just` · `uv` · `pnpm` · direnv · Git |
 
-- **kebab-case**  
-  Utilizado para nomes compostos de projetos, repositórios e arquivos de configuração. Palavras em minúsculas separadas por hífens.  
-  _Exemplo:_ `portfolio-weblog`, `personal-hub-config`, `ai-automation-scripts`
+## 我的工作方式
 
-Esses padrões garantem compatibilidade entre sistemas operacionais e estão alinhados com convenções amplamente adotadas em projetos open source.
-
-## 📊 Estatísticas do GitHub
-
-<div style="display: flex; flex-wrap: wrap; gap: 10px;">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=v1cferr&layout=compact&theme=radical" alt="Top Linguagens" height="140"/>
-  <img src="https://github-readme-stats.vercel.app/api?username=v1cferr&show_icons=true&theme=radical" alt="Estatísticas do GitHub" height="140"/>
-</div>
-
-## 📫 Como Me Encontrar
-
-<div style="display: flex; gap: 12px; align-items: center;">
-  <a href="https://www.linkedin.com/in/v1cferr/" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
-  </a>
-  <a href="mailto:dev.victorferreira@gmail.com">
-    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/>
-  </a>
-</div>
-
-*Atualizado em Junho de 2025*
-
-</details>
-
-
-
-<details>
-  <summary>:cn: 中文 (Chinese)</summary>
-
-# 嗨，我是 Victor “v1cferr” Ferreira
-
-前端开发者 | TypeScript, Python & FastAPI | IT 管理学生 | 探索 AI 与后端集成
-
-<img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWNhbnNmdW16aHRqenhpbjlubmVkMmxreGJ1eDkwaGY2NWM4YmY5dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qgQUggAC3Pfv687qPC/giphy.gif" align="right" width="200" alt="Lofi 编程 GIF"/>
-
-我是一名全栈开发人员，主要专注于前端开发。我的当前项目涉及将 AI 模型集成到 Web 应用程序中、自动化工作流程以及构建动态、响应式界面。虽然我在整个技术栈都有经验，但我的主要专业领域是前端开发（TypeScript、React、Next.js），并结合基于 Python 的后端服务（FastAPI）。
-
-## 🔧 技术 & 工具
-
-<div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
-  <!-- 语言 -->
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black" alt="JavaScript"/>
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white" alt="TypeScript"/>
-  <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python"/>
-  <img src="https://img.shields.io/badge/Bash-4EAA25?style=flat&logo=gnu-bash&logoColor=white" alt="Bash"/>
-
-  <!-- 框架/库 -->
-  <img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black" alt="React"/>
-  <img src="https://img.shields.io/badge/Next.js-000000?style=flat&logo=nextdotjs&logoColor=white" alt="Next.js"/>
-  <img src="https://img.shields.io/badge/Astro-FF5D01?style=flat&logo=astro&logoColor=white" alt="Astro"/>
-  <img src="https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white" alt="FastAPI"/>
-
-  <!-- 数据库 -->
-  <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white" alt="MySQL"/>
-  <img src="https://img.shields.io/badge/PostgreSQL-316192?style=flat&logo=postgresql&logoColor=white" alt="PostgreSQL"/>
-  <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=flat&logo=supabase&logoColor=white" alt="Supabase"/>
-
-  <!-- 工具 -->
-  <img src="https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white" alt="Vite"/>
-  <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white" alt="Docker"/>
-  <img src="https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white" alt="Git"/>
-  <img src="https://img.shields.io/badge/Swagger-85EA2D?style=flat&logo=swagger&logoColor=black" alt="Swagger"/>
-</div>
-
-## 命名约定
-
-为了确保在仓库、目录和文件中的一致性和可读性，我遵循以下命名模式：
-
-- **lowercase**  
-  用于单词目录或文件名。所有字母均为小写且无分隔符。  
-  _示例：_ `docs`, `scripts`, `assets`
-
-- **kebab-case**  
-  用于多词项目名称、仓库名称和配置文件。词与词之间用连字符分隔且小写。  
-  _示例：_ `portfolio-weblog`, `personal-hub-config`, `ai-automation-scripts`
-
-这些模式确保跨操作系统的兼容性，并与广泛采用的开源约定保持一致。
-
-## 📊 GitHub 统计
-
-<div style="display: flex; flex-wrap: wrap; gap: 10px;">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=v1cferr&layout=compact&theme=radical" alt="主要语言" height="140"/>
-  <img src="https://github-readme-stats.vercel.app/api?username=v1cferr&show_icons=true&theme=radical" alt="GitHub 统计" height="140"/>
-</div>
-
-## 📫 联系方式
-
-<div style="display: flex; gap: 12px; align-items: center;">
-  <a href="https://www.linkedin.com/in/v1cferr/" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
-  </a>
-  <a href="mailto:dev.victorferreira@gmail.com">
-    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/>
-  </a>
-</div>
-
-*更新于 2025 年 6 月*
+- **声明式且可复现。** 不在 flake 或 compose 文件里的东西，就等于不存在。
+- **官方来源优先**，保留原始文档，并记录读取的时刻。
+- **先手工，后自动化** —— 在理解领域之后，而不是之前。
+- **模型永远不是事实的来源。** LLM 只负责提议；经过验证的抽取和人工阅读才做决定。
+- **代码与文档以英文为先**，因为这些仓库是公开的。
 
 </details>
